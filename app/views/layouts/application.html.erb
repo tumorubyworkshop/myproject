@@ -10,6 +10,36 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">TumoCanteen</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <%  if user_signed_in? %>
+           <li class="nav-item"> 
+            <%= link_to("Logout",destroy_user_session_path, method: :delete,class: 'nav-link') %>
+            </li>
+
+          <% else %>
+          <li class="nav-item">
+            <%= link_to("Login",new_user_session_path, class: 'nav-link') %>
+            
+          </li>
+          <li class="nav-item">
+            <%= link_to("Signup",new_user_registration_path, class: 'nav-link') %>
+            
+          </li> 
+
+          <% end %>
+        </ul>
+      </div>
+      </div>
+    </nav>
+    <div class="container">
+
     <%= yield %>
+      
+    </div><button class="">
   </body>
 </html>

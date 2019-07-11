@@ -1,11 +1,23 @@
- <!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Log in-Flower shop</title>
-</head>
-<body>
-	<div></div>
+<h1>shlor</h1>
+<div class="row"><% @products.each do |product|%>
+	<div class="col-lg-4 col-md-6 mb-4"> 
 
-</body>
-</html>
+		<div class="card h-100">
+			<%= image_tag(product.photo, class: "card-img-top", style:"width:100px; margin:auto")unless product.photo.nil? %>
+			<div class="card-body">
+				<h4><%= product.name %></h4>
+				<h5><%= product.price %></h5>
+				<p class="card-text"><%= product.description %></p>
+			</div>
+			<div class="card-footer">
+				<%= link_to "Add to cart", cart_add_path(product: product.id),class: 'btn btn-primary' %>
+			</div>
+
+
+		</div>
+
+
+
+	</div>.				
+	<%end%>
+</div>
